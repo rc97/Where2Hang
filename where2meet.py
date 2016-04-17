@@ -1,11 +1,11 @@
-from flask import Flask,request
+from flask import Flask,request,render_template,url_for,jsonify
 # from flask_sqlalchemy import SQLAlchemy
 import simplejson
 
 
 app = Flask(__name__)
 
-location = ""
+location = 'somewhere'
 sound = 0 
 light = 0 
 temperature = 0 
@@ -48,8 +48,8 @@ def data():
 		temperature = data.temperature
 	elif request.method=='GET':
 		# send the sensor data in a response to the website
-		return Flask.jsonify({'location':location,'sound':sound,'light':light,'temperature':temperature})
+		return jsonify(sound=sound,light=light,temperature=temperature)
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)

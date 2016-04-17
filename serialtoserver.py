@@ -18,4 +18,4 @@ with serial.Serial('/dev/ttyS0', 9600, timeout=2) as ser:
 		sound = int(line)
 	count = (count + 1 )% 3
 	if not count:
-		json = json.dumps({"light": light, "temperature": temp, "sound": sound, "location", location})
+		json = json.dumps({"light":light,"temperature":temp,"sound":sound,"location":location})
