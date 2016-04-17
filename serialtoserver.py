@@ -10,11 +10,11 @@ json = ''
 location = "bcc"
 with serial.Serial('/dev/ttyS0', 9600, timeout=2) as ser:
 	line = ser.readline()
-	if line[1] == 'l'
+	if line[0] == 'l'
 		light = int(line[2:])
-	elif line[1] == 't'
+	elif line[0] == 't'
 		temp = int(line[2:])
-	elif line[1] == 's':
+	elif line[0] == 's':
 		sound = int(line[2:])
 	count = (count + 1 )% 3
 	if not count:
